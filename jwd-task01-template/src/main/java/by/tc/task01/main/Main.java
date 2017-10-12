@@ -4,7 +4,6 @@ import static by.tc.task01.entity.criteria.SearchCriteria.*; //класс Search
 
 import by.tc.task01.entity.Appliance;
 import by.tc.task01.entity.criteria.Criteria;
-import by.tc.task01.entity.criteria.SearchCriteria;
 import by.tc.task01.service.ApplianceService;
 import by.tc.task01.service.ServiceFactory;
 
