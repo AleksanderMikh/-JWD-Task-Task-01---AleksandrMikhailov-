@@ -18,9 +18,9 @@ public class Main {
 
 		//////////////////////////////////////////////////////////////////
 
-		Criteria<Oven> criteriaOven = new Criteria<Oven>(); //создаем объект класса с дженериком Oven
+		Criteria<Oven> criteriaOven = new Criteria<Oven>();
 		criteriaOven.setApplianceType("Oven");
-		criteriaOven.add(Oven.CAPACITY, 32);	//добавляем критерий
+		criteriaOven.add(Oven.CAPACITY, 32);
 
 		appliance = service.find(criteriaOven);
 
@@ -43,7 +43,7 @@ public class Main {
 		criteriaTabletPC.setApplianceType("TabletPC");
 		criteriaTabletPC.add(TabletPC.COLOR, "BLUE");
 		criteriaTabletPC.add(TabletPC.DISPLAY_INCHES, 14);
-		criteriaTabletPC.add(TabletPC.MEMORY_ROM, 20);
+		criteriaTabletPC.add(TabletPC.MEMORY_ROM, 8000);
 
 		appliance = service.find(criteriaTabletPC);
 

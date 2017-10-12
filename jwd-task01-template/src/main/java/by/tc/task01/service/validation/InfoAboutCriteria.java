@@ -30,8 +30,8 @@ public class InfoAboutCriteria {
         test.put("COLOR","string");
         test.put("NUMBER_OF_SPEAKERS","double");
         test.put("FREQUENCY_RANGE","string");
-        test.put("CORD_LENGTH","string");
-        test.put("DISPLAY_INCHES","string");
+        test.put("CORD_LENGTH","double");
+        test.put("DISPLAY_INCHES","double");
     }
 
     public static Map<Object, Object> getInfo() {

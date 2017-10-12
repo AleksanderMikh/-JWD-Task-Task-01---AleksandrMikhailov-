@@ -14,12 +14,14 @@ public class Validator {
 			return false;
 		}
 
-		boolean result = true;
+		boolean result;
 		for(Map.Entry<E, Object> singlValue: criteria.getCriteria().entrySet()){
+			result = true;
 			if( InfoAboutCriteria.getInfo().get( singlValue.getKey().toString() ).toString().equals("double")){
 				result = DoubleTest.test(singlValue.getValue().toString());
 			}
 			if(!result){
+
 				return false;
 			}
 

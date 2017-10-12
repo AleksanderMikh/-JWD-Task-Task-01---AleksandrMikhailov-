@@ -8,7 +8,7 @@ public final class SearchCriteria { /* финал класс, содержащи
 	}
 	
 	public static enum Laptop{
-		BATTERY_CAPACITY, OS, MEMORY_ROM, SYSTEM_MEMORY, CPU, DISPLAY_INCHS
+		BATTERY_CAPACITY, OS, MEMORY_ROM, SYSTEM_MEMORY, CPU, DISPLAY_INCHES
 	}
 	
 	public static enum Refrigerator{
