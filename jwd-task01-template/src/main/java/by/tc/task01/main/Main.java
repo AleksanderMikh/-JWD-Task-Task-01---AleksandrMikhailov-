@@ -54,7 +54,7 @@ public class Main {
 		criteriaTabletPC = new Criteria<TabletPC>();
 		criteriaTabletPC.setApplianceType("TabletPC");
 		criteriaTabletPC.add(TabletPC.DISPLAY_INCHES, 14);
-		criteriaTabletPC.add(TabletPC.MEMORY_ROM, "as");
+		criteriaTabletPC.add(TabletPC.MEMORY_ROM, 8000);
 
 		appliance = service.find(criteriaTabletPC);
 

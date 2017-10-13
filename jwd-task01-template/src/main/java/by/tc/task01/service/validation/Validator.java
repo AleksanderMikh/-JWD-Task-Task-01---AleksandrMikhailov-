@@ -15,16 +15,20 @@ public class Validator {
 		}
 
 		boolean result;
+		String criteriaKey, criteriaValue;
 		for(Map.Entry<E, Object> singlValue: criteria.getCriteria().entrySet()){
 			result = true;
-			if( InfoAboutCriteria.getInfo().get( singlValue.getKey().toString() ).toString().equals("double")){
-				result = DoubleTest.test(singlValue.getValue().toString());
+			criteriaKey = singlValue.getKey().toString();
+			criteriaValue = singlValue.getValue().toString();
+			if( InfoAboutCriteria.getInfo().get( criteriaKey ).toString().equals("double")){
+				result = DoubleTest.testDouble(criteriaValue);
 			}
-			if(!result){
+			else if(InfoAboutCriteria.getInfo().get( criteriaKey ).toString().equals("string"))
+			{
 
-				return false;
+				result = StringTest.testString(criteriaValue);
 			}
-
+			return result;
 		}
 		
 		return true;

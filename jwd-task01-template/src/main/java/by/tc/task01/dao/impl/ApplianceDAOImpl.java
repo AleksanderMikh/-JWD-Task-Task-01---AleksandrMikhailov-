@@ -21,7 +21,7 @@ public class ApplianceDAOImpl implements ApplianceDAO {
 			FileInputStream fstream = new FileInputStream("src/main/resources/appliances_db.txt");
 			BufferedReader buffer = new BufferedReader(new InputStreamReader(fstream));	//открываем файл
 
-			String strLine, line;
+			String strLine, line, strKey, strValue, criteriaKey, criteriaValue;
 			boolean flag = false;
 			List<Object> values = new ArrayList<Object>(); //лист для значений
 			Pattern pattern = Pattern.compile("\\S+[=](\\w+\\W\\w|\\w+)"); //рег-е выражение
@@ -43,18 +43,23 @@ public class ApplianceDAOImpl implements ApplianceDAO {
 						values.add(line.split("=")[1]);	//лист со значениями
 					}
 
-					for (Map.Entry<Object, Object> singleValue : newMap.entrySet()) {	//цикл по значениям из строки
+					for (Map.Entry<Object, Object> singleValue : newMap.entrySet()) {						//цикл по значениям из строки
+
 						flag = true;	//ключ для отсеивания не подходящих строк
+
+						strKey = singleValue.getKey().toString().toLowerCase();
+						strValue = singleValue.getValue().toString().toLowerCase();
 
 						for (Map.Entry<E, Object> oldMap : criteria.getCriteria().entrySet()) {
 
-							if (singleValue.getKey().toString().toLowerCase().equals(oldMap.getKey().toString().toLowerCase()) //сверяем ключи
-									&& singleValue.getValue().toString().toLowerCase().equals(oldMap.getValue().toString().toLowerCase())) {	//сверяем значения
+							criteriaKey = oldMap.getKey().toString().toLowerCase();
+							criteriaValue = oldMap.getValue().toString().toLowerCase();
+
+							if ( strKey.equals(criteriaKey) && strValue.equals(criteriaValue) ) {
 								break;	//значение совпало - ключ остается true -> прерываем поиск
 
-							} else if (singleValue.getKey().toString().toLowerCase().equals(oldMap.getKey().toString().toLowerCase()) //сверяем ключи
-									&& !singleValue.getValue().toString().toLowerCase().equals(oldMap.getValue().toString().toLowerCase())) {	//сверяем значения
-								flag = false;	//если значение по одному ключу отличается -> неверный критерий	-> false
+							} else if ( strKey.equals(criteriaKey) && !strValue.equals(criteriaValue) ) {
+								flag = false;	//если значение по одинаковому ключу отличается -> неверный критерий	-> false
 								break;
 							}
 						}

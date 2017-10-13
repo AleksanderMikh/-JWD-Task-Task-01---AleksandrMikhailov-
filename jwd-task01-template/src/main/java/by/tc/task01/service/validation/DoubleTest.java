@@ -2,7 +2,7 @@ package by.tc.task01.service.validation;
 
 public class DoubleTest {
 
-    public static boolean test(Object obj) throws NumberFormatException {
+    public static boolean testDouble(Object obj) throws NumberFormatException {
         try {
             Double.parseDouble(obj.toString());
             return true;
